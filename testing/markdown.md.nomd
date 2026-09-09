@@ -1,0 +1,54 @@
+# Markdown rules
+
+> Applies to: `**/*.md`, `**/*.mdx`, `docs/**`
+> Toolchain version: CommonMark + GitHub Flavored Markdown (GFM)  ·  Package manager: pnpm (Node 20)
+
+## Commands (run from repo root)
+
+| Purpose        | Command                                          |
+| -------------- | ------------------------------------------------ |
+| Install deps   | `pnpm install`                                   |
+| Build          | N/A                                              |
+| Run (dev)      | N/A                                              |
+| Test (all)     | `pnpm exec markdownlint-cli2 "**/*.md"`          |
+| Test (single)  | `pnpm exec markdownlint-cli2 path/to/file.md`    |
+| Lint           | `pnpm exec markdownlint-cli2 "**/*.md"`          |
+| Format         | `pnpm exec prettier --write "**/*.md"`           |
+| Typecheck      | N/A                                              |
+
+- `prettier` is **authoritative** for formatting — don't hand-format; run it.
+- Before declaring done: run format and lint (see root DoD). Also verify links resolve.
+
+## Style & structure
+
+- Config lives in `.markdownlint.jsonc` and `.prettierrc` — don't override inline unless noted there.
+- Naming: file names in `kebab-case.md`; one top-level `#` heading (H1) per document.
+- Layout: headings increment by one level at a time (no skipping H2→H4); keep files focused and < 300 LOC per root rule — split long docs.
+- Use ATX headings (`#`), fenced code blocks with a language tag, and reference-style links for repeated URLs.
+- Wrap prose at a consistent width or leave one sentence per line — pick what the config enforces; don't mix.
+
+## Errors & logging
+
+- N/A for content. For code samples inside fenced blocks, show correct fail-fast idioms — no empty `catch`/silent fallbacks in examples (matches root rules).
+- Never embed secrets, tokens, real credentials, or PII in examples; use obvious placeholders (`<YOUR_TOKEN>`).
+
+## Testing
+
+- Lint with `markdownlint-cli2`; every committed doc must pass with zero warnings.
+- New/changed docs ship passing lint. Don't disable rules inline (`<!-- markdownlint-disable -->`) to make lint green unless justified in the PR.
+- Verify all internal links and image paths resolve; check code fences specify a language.
+
+## Dependencies
+
+- Add tooling via `pnpm add -D <pkg>`; commit `pnpm-lock.yaml`.
+- Pin versions via the lockfile; prefer maintained, permissively licensed tools.
+- Qualify a new dependency with the user before adding it (root rule).
+- Do not hand-edit generated files: `pnpm-lock.yaml`, any auto-generated tables of contents or API docs (regenerate instead).
+
+## Language-specific gotchas
+
+- Blank lines matter: fenced code blocks, lists, and headings need a surrounding blank line or they render wrong in GFM.
+- Raw HTML is allowed in Markdown but sanitized by many renderers — prefer Markdown syntax; test rendering if HTML is required.
+- Tables need a header row and `---` separator; misaligned pipes silently break the table.
+- Trailing spaces for line breaks are error-prone — use explicit blank lines or `<br>` where a hard break is truly needed.
+- MDX (`.mdx`) treats `{}` and `<Tag>` as JSX — escape literal braces/angle brackets or they'll fail to parse.

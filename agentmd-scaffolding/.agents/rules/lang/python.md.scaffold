@@ -1,0 +1,58 @@
+<!--
+SCAFFOLD EXAMPLE — a filled copy of _TEMPLATE.md for Python.
+Rename to `python.md` to activate, and add a pointer in AGENTS.md:
+    - Python code → `.agents/rules/lang/python.md`
+Adjust commands/tools to match the real project before activating.
+-->
+
+# Python rules
+
+> Applies to: `src/**/*.py`, `tests/**/*.py`
+> Toolchain version: Python 3.12  ·  Package manager: uv
+
+## Commands (run from repo root)
+
+| Purpose        | Command                                   |
+| -------------- | ----------------------------------------- |
+| Install deps   | `uv sync`                                  |
+| Build          | N/A                                        |
+| Run (dev)      | `uv run python -m app`                     |
+| Test (all)     | `uv run pytest`                            |
+| Test (single)  | `uv run pytest tests/test_x.py::test_case` |
+| Lint           | `uv run ruff check .`                      |
+| Format         | `uv run ruff format .`                     |
+| Typecheck      | `uv run mypy src`                          |
+
+- `ruff format` is **authoritative** — don't hand-format; run it.
+- Before declaring done: run format, lint, typecheck, and tests (see root DoD).
+
+## Style & structure
+
+- Config lives in `pyproject.toml` (`[tool.ruff]`, `[tool.mypy]`) — don't override inline unless noted there.
+- Naming: `snake_case` functions/vars, `PascalCase` classes, `UPPER_SNAKE` constants.
+- Layout: one cohesive concern per module; keep files < 300 LOC per root rule.
+- Public functions/classes get docstrings; comments explain *why*, not *what*.
+- Prefer type hints everywhere; mypy runs in strict-ish mode.
+
+## Errors & logging
+
+- Raise specific exceptions; never `except:` bare or empty (matches root no-empty-try/catch rule). Fail fast — no silent fallbacks.
+- Use the `logging` module, not `print`, in committed code. Never log secrets or PII.
+
+## Testing
+
+- pytest; tests live in `tests/` mirroring `src/`.
+- New code ships with tests. Don't skip/`xfail` to make a suite green.
+- Unit-test logic in isolation; use fixtures for I/O boundaries.
+
+## Dependencies
+
+- Add via `uv add <pkg>`; commit `uv.lock`.
+- Pin versions via the lockfile; prefer maintained, permissively licensed libs.
+- Qualify a new dependency with the user before adding it (root rule).
+- Do not hand-edit generated/vendored files: `uv.lock`, migrations, `*_pb2.py`.
+
+## Language-specific gotchas
+
+- Async: don't mix blocking I/O into `async def`; use `asyncio`-aware libs.
+- Mutable default args are forbidden (`def f(x=[])`) — use `None` sentinels.

@@ -1,0 +1,36 @@
+<!--
+Location note (pi): project skills live in `.agents/skills/<name>/SKILL.md` or
+`.pi/skills/<name>/SKILL.md`, discovered after the project is trusted.
+Global skills live in `~/.agents/skills/`.
+See docs/skills.md.
+-->
+---
+name: source-document-review
+description: Faithfully extract, summarize, or paraphrase content from source documents (PDFs, CSVs, long text, uploads). Use whenever a task depends on the exact content of a provided document and accuracy or preserved wording matters.
+---
+
+# Source Document Review
+
+A verification-first workflow for producing output that is faithful to a source.
+
+## Procedure
+
+1. **Read the full document first.** Do not skim or work from an excerpt.
+2. **Draft the output** (summary, extraction, answer).
+3. **Re-read the source before finalizing** and verify:
+   - factual accuracy — every claim traces to the source,
+   - no invented details,
+   - wording/style preserved unless the user explicitly asked for a rewrite.
+4. **Label paraphrases** explicitly as paraphrases.
+
+## Guardrails
+
+- If a fact is not in the source, say so — never fill gaps by guessing.
+- Quote exactly when precision matters; paraphrase only when asked and label it.
+- For tabular data (CSV), confirm column meaning before computing or summarizing.
+
+## References
+
+<!-- Detailed, rarely-needed material goes in references/ and loads on demand. -->
+See [references/citation-format.md](references/citation-format.md) for how to cite
+page/section/row when this project requires traceable sources.

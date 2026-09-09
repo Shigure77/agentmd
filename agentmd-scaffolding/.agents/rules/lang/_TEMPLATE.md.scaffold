@@ -1,0 +1,67 @@
+<!--
+SCAFFOLD TEMPLATE — copy this file, don't rename it in place.
+
+HOW TO USE
+  1. Copy to `.agents/rules/lang/<language>.md` (e.g. `python.md`, `typescript.md`, `go.md`).
+  2. Fill every <PLACEHOLDER>. Delete rows/sections that don't apply.
+  3. Add a pointer in the root AGENTS.md under "Detailed rules", e.g.:
+       - Python code → `.agents/rules/lang/python.md`
+  4. If a whole subtree is one language, you can instead drop a nested
+     `AGENTS.md` in that directory and paste the filled content there.
+
+DESIGN NOTES
+  - This template closes the biggest gaps in the root rules: build/test/run
+    commands, authoritative formatter/linter, and dependency policy.
+  - Keep each filled file tight. Commands and "don'ts" first; prose last.
+  - Commands should be copy-pasteable and runnable from the repo root.
+-->
+
+# <LANGUAGE> rules
+
+> Applies to: <PATH GLOBS, e.g. `src/**/*.py`, `services/api/**`>
+> Toolchain version: <e.g. Python 3.12 / Node 20 / Go 1.22>  ·  Package manager: <e.g. uv / pnpm / go mod>
+
+## Commands (run from repo root)
+
+| Purpose        | Command                                   |
+| -------------- | ----------------------------------------- |
+| Install deps   | `<INSTALL CMD>`                           |
+| Build          | `<BUILD CMD or "N/A">`                    |
+| Run (dev)      | `<RUN CMD>`                                |
+| Test (all)     | `<TEST CMD>`                              |
+| Test (single)  | `<SINGLE-TEST CMD, incl. how to target one test>` |
+| Lint           | `<LINT CMD>`                              |
+| Format         | `<FORMAT CMD>`                            |
+| Typecheck      | `<TYPECHECK CMD or "N/A">`               |
+
+- The formatter above is **authoritative** — don't hand-format; run it.
+- Before declaring done: run format, lint, typecheck, and tests (see root DoD).
+
+## Style & structure
+
+- Formatter/linter config lives in `<CONFIG FILE, e.g. pyproject.toml / .eslintrc / .golangci.yml>` — do not override inline unless the file says so.
+- Naming: <CONVENTION, e.g. snake_case funcs, PascalCase types>.
+- Module/file layout: <e.g. one public type per file; keep files < 300 LOC per root rule>.
+- Public APIs get doc comments (<e.g. docstrings / JSDoc / godoc>); comments explain *why*, not *what*.
+
+## Errors & logging
+
+- Error handling idiom: <e.g. raise exceptions / return `error` / Result type>. Follows root "fail fast, no silent fallback" rule.
+- Logging: use <LOGGER/LIB>, structured where possible; never `print`-debug in committed code; never log secrets or PII.
+
+## Testing
+
+- Framework: <e.g. pytest / vitest / go test>. Test files live in <LOCATION/PATTERN>.
+- New code ships with tests. Don't weaken, skip, or `xfail`/`t.Skip` a test to make a suite pass.
+- <UNIT vs INTEGRATION guidance; what must be covered>.
+
+## Dependencies
+
+- Add via `<ADD-DEP CMD>`; commit the lockfile (`<LOCKFILE>`).
+- Pin/lock versions; prefer maintained, permissively licensed libraries.
+- Per root rule: qualify a new dependency with the user before adding it.
+- Do not hand-edit generated/vendored files: <e.g. `<LOCKFILE>`, `dist/`, `*_pb2.py`, migrations>.
+
+## Language-specific gotchas
+
+- <e.g. async/await rules, GIL, nullability, ownership, build tags — anything an agent gets wrong here>.

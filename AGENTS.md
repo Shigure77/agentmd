@@ -28,6 +28,8 @@ rules file and leave a pointer here.
 - Definition of done → `.agents/rules/definition-of-done.md`
 - Version control (commits, branches, no force-push) → `.agents/rules/version-control.md`
 - Handling ambiguity (ask vs. proceed) → `.agents/rules/ambiguity.md`
+- Repository layout (keep `.agents/REPO_LAYOUT.md` current) → `.agents/rules/repo-layout.md`
+- Repo layout map → `.agents/REPO_LAYOUT.md`
 
 ### Per-language rules (read the one matching the file you're editing)
 

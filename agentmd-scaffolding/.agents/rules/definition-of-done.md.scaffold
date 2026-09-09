@@ -1,0 +1,15 @@
+# Definition of done
+
+A task is done when:
+
+- the requested change is implemented or the question is answered,
+- verification is provided:
+  - build attempted (when source code changed),
+  - linting run (when source code changed),
+  - errors/warnings addressed (or explicitly listed and agreed as out-of-scope),
+  - plus tests/typecheck as applicable,
+- documentation is updated exhaustively for impacted areas,
+- impact is explained (what changed, where, why),
+- follow-ups are listed if anything was intentionally left out,
+- `.agents/CONTINUITY.md` is updated if the change materially affects
+  goal/state/decisions.
