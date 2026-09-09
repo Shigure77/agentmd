@@ -1,13 +1,11 @@
-<!-- SCAFFOLD — rename to `continuity.md` to activate. Referenced by AGENTS.md. -->
-
 # CONTINUITY.md workflow (REQUIRED)
 
 Maintain a single continuity file for the current workspace:
-`.agent/CONTINUITY.md` (see the template in `.agent/CONTINUITY.md.mysample`).
+`.agents/CONTINUITY.md` (see the template in `.agents/CONTINUITY.md.mysample`).
 
 - It is a living, canonical briefing designed to survive compaction; do not
   rely on earlier chat/tool output unless it's reflected there.
-- **At the start of each assistant turn: read `.agent/CONTINUITY.md` before acting.**
+- **At the start of each assistant turn: read `.agents/CONTINUITY.md` before acting.**
 
 ## File format
 

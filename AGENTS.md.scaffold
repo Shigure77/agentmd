@@ -2,21 +2,11 @@
 SCAFFOLD FILE — rename to `AGENTS.md` to activate.
 Kept as `.scaffold` so it isn't auto-discovered while iterating in chat.
 
-This is the MODULAR version of `AGENTS.md.mysample`: a slim, always-loaded
-root that carries only broad rules + pointers. Domain/rarely-needed detail
-lives in `.agents/rules/*` and loads on demand.
-
 Keep this file tight (~1-2 screens). If a section grows, split it into a
 rules file and leave a pointer here.
 -->
 
 # AGENTS.md
-
-## Project overview
-
-Agent-configuration workspace. Files are kept with `.mysample` / `.scaffold`
-suffixes so they are **not** auto-applied while we iterate; rename to the real
-name (e.g. `AGENTS.md`, `SKILL.md`) to activate.
 
 ## Always-on rules (highest priority)
 
@@ -53,5 +43,5 @@ name (e.g. `AGENTS.md`, `SKILL.md`) to activate.
 
 ## Continuity (quick reminder — full rules in the file above)
 
-Maintain `.agent/CONTINUITY.md`. **Read it at the start of every turn** before
+Maintain `.agents/CONTINUITY.md`. **Read it at the start of every turn** before
 acting; update it when goal/state/decisions materially change.

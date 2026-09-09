@@ -1,10 +1,7 @@
 <!--
-Rename to SKILL.md to activate. Kept as .scaffold so it isn't auto-discovered
-while we're iterating in this chat.
-
 Location note (pi): project skills live in `.agents/skills/<name>/SKILL.md` or
 `.pi/skills/<name>/SKILL.md`, discovered after the project is trusted.
-Global skills live in `~/.agents/skills/` or `~/.pi/agent/skills/`.
+Global skills live in `~/.agents/skills/`.
 See docs/skills.md.
 -->
 ---

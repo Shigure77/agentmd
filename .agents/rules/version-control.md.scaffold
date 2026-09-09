@@ -1,5 +1,4 @@
-<!-- SCAFFOLD — rename to `version-control.md` to activate. Referenced by AGENTS.md.
-Extends the secrets rule (`.agents/rules/secrets.md`). Adjust conventions to match the project. -->
+<!-- Extends the secrets rule (`.agents/rules/secrets.md`). Adjust conventions to match the project. -->
 
 # Version control
 

@@ -1,5 +1,3 @@
-<!-- SCAFFOLD — rename to `definition-of-done.md` to activate. Referenced by AGENTS.md. -->
-
 # Definition of done
 
 A task is done when:
@@ -13,5 +11,5 @@ A task is done when:
 - documentation is updated exhaustively for impacted areas,
 - impact is explained (what changed, where, why),
 - follow-ups are listed if anything was intentionally left out,
-- `.agent/CONTINUITY.md` is updated if the change materially affects
+- `.agents/CONTINUITY.md` is updated if the change materially affects
   goal/state/decisions.
