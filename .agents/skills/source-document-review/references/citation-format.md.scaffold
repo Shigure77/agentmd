@@ -1,0 +1,10 @@
+# Citation format (loaded on demand)
+
+Rename to citation-format.md to activate.
+
+- PDFs: cite as `(p. <n>)` or `(§<section>, p. <n>)`.
+- CSVs: cite as `(row <n>, column "<name>")`.
+- Long text/uploads: cite the nearest heading and a short verbatim anchor phrase.
+
+This file is intentionally separate: it's only relevant when a task actually
+needs traceable citations, so it stays out of context until then.

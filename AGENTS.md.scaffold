@@ -1,0 +1,57 @@
+<!--
+SCAFFOLD FILE — rename to `AGENTS.md` to activate.
+Kept as `.scaffold` so it isn't auto-discovered while iterating in chat.
+
+This is the MODULAR version of `AGENTS.md.mysample`: a slim, always-loaded
+root that carries only broad rules + pointers. Domain/rarely-needed detail
+lives in `.agents/rules/*` and loads on demand.
+
+Keep this file tight (~1-2 screens). If a section grows, split it into a
+rules file and leave a pointer here.
+-->
+
+# AGENTS.md
+
+## Project overview
+
+Agent-configuration workspace. Files are kept with `.mysample` / `.scaffold`
+suffixes so they are **not** auto-applied while we iterate; rename to the real
+name (e.g. `AGENTS.md`, `SKILL.md`) to activate.
+
+## Always-on rules (highest priority)
+
+- **Modular first.** No code file over 300 LOC. Docs/plans may be any length;
+  code must be split into small modules. Never limit scope to fit the LOC cap —
+  split instead.
+- **Think ahead.** Keep entrypoints stable; isolate logic into small modules
+  from the start. Don't write code you already know you'll rewrite.
+- **Fail fast.** No fallback code that hides breakage. No empty try/catch.
+- **Don't reinvent the wheel.** Prefer open-source, self-hosted libraries; help
+  the user qualify their choice before adding a dependency.
+
+## Detailed rules (read the relevant file before acting)
+
+- Secrets & sensitive data → `.agents/rules/secrets.md`
+- Autonomy & safety (read-only default, dry-run writes) → `.agents/rules/autonomy-and-safety.md`
+- Research tools (Context7 MCP, web search) → `.agents/rules/research-tools.md`
+- Continuity file workflow → `.agents/rules/continuity.md`
+- Definition of done → `.agents/rules/definition-of-done.md`
+- Version control (commits, branches, no force-push) → `.agents/rules/version-control.md`
+- Handling ambiguity (ask vs. proceed) → `.agents/rules/ambiguity.md`
+
+### Per-language rules (read the one matching the file you're editing)
+
+- Template for adding a language → `.agents/rules/lang/_TEMPLATE.md`
+- Python code → `.agents/rules/lang/python.md`
+- `<add more, e.g. TypeScript → .agents/rules/lang/typescript.md>`
+
+## Skills
+
+- Reviewing/summarizing source documents (PDFs, CSVs, long text) →
+  use the `source-document-review` skill
+  (`.agents/skills/source-document-review/SKILL.md`).
+
+## Continuity (quick reminder — full rules in the file above)
+
+Maintain `.agent/CONTINUITY.md`. **Read it at the start of every turn** before
+acting; update it when goal/state/decisions materially change.
