@@ -21,9 +21,10 @@ rules file and leave a pointer here.
 
 ## Detailed rules (read the relevant file before acting)
 
+- Project goal & context (read first) → `.agents/rules/project-goal.md`
 - Secrets & sensitive data → `.agents/rules/secrets.md`
 - Autonomy & safety (read-only default, dry-run writes) → `.agents/rules/autonomy-and-safety.md`
-- Research tools (Context7 MCP, web search) → `.agents/rules/research-tools.md`
+- Research tools (docs lookup, web search) → `.agents/rules/research-tools.md`
 - Continuity file workflow → `.agents/rules/continuity.md`
 - Definition of done → `.agents/rules/definition-of-done.md`
 - Version control (commits, branches, no force-push) → `.agents/rules/version-control.md`

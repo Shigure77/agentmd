@@ -1,0 +1,60 @@
+<!--
+SCAFFOLD EXAMPLE — a filled copy of _TEMPLATE.md for Markdown/prose.
+Rename to `markdown.md` to activate, and add a pointer in AGENTS.md:
+    - Markdown / docs → `.agents/rules/lang/markdown.md`
+Adjust commands/tools to match the real project before activating.
+-->
+
+# Markdown rules
+
+> Applies to: `**/*.md`, `**/*.mdx`, `**/*.md.scaffold`
+> Toolchain version: Node 20 (for linters/formatters)  ·  Package manager: pnpm
+
+## Commands (run from repo root)
+
+| Purpose        | Command                                   |
+| -------------- | ----------------------------------------- |
+| Install deps   | `pnpm install`                            |
+| Build          | N/A                                       |
+| Run (dev)      | N/A                                       |
+| Test (all)     | `pnpm markdownlint "**/*.md"`             |
+| Test (single)  | `pnpm markdownlint path/to/file.md`       |
+| Lint           | `pnpm markdownlint "**/*.md"`             |
+| Format         | `pnpm prettier --write "**/*.md"`         |
+| Typecheck      | N/A                                       |
+
+- `prettier` is **authoritative** for formatting — don't hand-wrap or hand-align; run it.
+- Also check links before declaring done (e.g. `pnpm markdown-link-check`), and run lint (see root DoD).
+
+## Style & structure
+
+- Linter/formatter config lives in `.markdownlint.json` and `.prettierrc` — don't override inline unless the config says so.
+- One `# H1` per file; don't skip heading levels (`##` → `####` is not allowed).
+- Prefer `-` for unordered lists and `1.` for ordered lists; keep list style consistent within a file.
+- Use fenced code blocks with a language tag (```bash, ```python), not indented blocks.
+- Keep files focused; per root rule, split long docs into linked files rather than one giant page (the LOC cap targets code, but keep prose navigable too).
+- Reference other rules/docs by relative link, matching the root "explicit pointer" convention.
+
+## Errors & logging
+
+- N/A for prose. If a doc documents error handling, it must match the root "fail fast, no silent fallback" rule.
+
+## Testing
+
+- "Tests" = lint + link check. Run `markdownlint` and a link checker over changed files.
+- New docs ship lint-clean and link-clean. Don't disable a rule inline (`<!-- markdownlint-disable -->`) just to pass — fix the content or justify the exception in the config.
+
+## Dependencies
+
+- Add tooling via `pnpm add -D <pkg>`; commit `pnpm-lock.yaml`.
+- Pin versions via the lockfile; prefer maintained, permissively licensed tools.
+- Qualify a new dependency with the user before adding it (root rule).
+- Do not hand-edit generated docs: API reference output, `CHANGELOG.md` when tool-generated, `node_modules/`.
+
+## Language-specific gotchas
+
+- Relative links break when files move — verify link targets exist after renames/moves.
+- Trailing whitespace creates hard line breaks in some renderers; let the formatter strip it.
+- Fenced code blocks inside code blocks need a longer fence (````) or they close early.
+- HTML in Markdown renders differently across GitHub / MDX / static-site generators — keep it minimal and portable.
+- `.scaffold` files are Markdown too: lint them, but they must **not** be auto-activated (see root project goal).

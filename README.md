@@ -29,7 +29,7 @@ AGENTS.md.scaffold                 # slim root: always-on rules + pointers
   rules/
     secrets.md.scaffold
     autonomy-and-safety.md.scaffold
-    research-tools.md.scaffold     # Context7 MCP + web search
+    research-tools.md.scaffold     # docs lookup + web search
     continuity.md.scaffold
     definition-of-done.md.scaffold
     version-control.md.scaffold

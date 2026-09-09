@@ -5,29 +5,31 @@
 
 ## Commands (run from repo root)
 
-| Purpose        | Command                                          |
-| -------------- | ------------------------------------------------ |
-| Install deps   | `pnpm install`                                   |
-| Build          | N/A                                              |
-| Run (dev)      | N/A                                              |
-| Test (all)     | `pnpm exec markdownlint-cli2 "**/*.md"`          |
-| Test (single)  | `pnpm exec markdownlint-cli2 path/to/file.md`    |
-| Lint           | `pnpm exec markdownlint-cli2 "**/*.md"`          |
-| Format         | `pnpm exec prettier --write "**/*.md"`           |
-| Typecheck      | N/A                                              |
+
+| Purpose       | Command                                       |
+| ------------- | --------------------------------------------- |
+| Install deps  | `pnpm install`                                |
+| Build         | N/A                                           |
+| Run (dev)     | N/A                                           |
+| Test (all)    | `pnpm exec markdownlint-cli2 "**/*.md"`       |
+| Test (single) | `pnpm exec markdownlint-cli2 path/to/file.md` |
+| Lint          | `pnpm exec markdownlint-cli2 "**/*.md"`       |
+| Format        | `pnpm exec prettier --write "**/*.md"`        |
+| Typecheck     | N/A                                           |
+
 
 - `prettier` is **authoritative** for formatting — don't hand-format; run it.
 - Before declaring done: run format and lint (see root DoD). Also verify links resolve.
 
-## Style & structure
+## Style &amp; structure
 
 - Config lives in `.markdownlint.jsonc` and `.prettierrc` — don't override inline unless noted there.
 - Naming: file names in `kebab-case.md`; one top-level `#` heading (H1) per document.
-- Layout: headings increment by one level at a time (no skipping H2→H4); keep files focused and < 300 LOC per root rule — split long docs.
+- Layout: headings increment by one level at a time (no skipping H2→H4); keep files focused and &lt; 300 LOC per root rule — split long docs.
 - Use ATX headings (`#`), fenced code blocks with a language tag, and reference-style links for repeated URLs.
 - Wrap prose at a consistent width or leave one sentence per line — pick what the config enforces; don't mix.
 
-## Errors & logging
+## Errors &amp; logging
 
 - N/A for content. For code samples inside fenced blocks, show correct fail-fast idioms — no empty `catch`/silent fallbacks in examples (matches root rules).
 - Never embed secrets, tokens, real credentials, or PII in examples; use obvious placeholders (`<YOUR_TOKEN>`).
@@ -52,3 +54,4 @@
 - Tables need a header row and `---` separator; misaligned pipes silently break the table.
 - Trailing spaces for line breaks are error-prone — use explicit blank lines or `<br>` where a hard break is truly needed.
 - MDX (`.mdx`) treats `{}` and `<Tag>` as JSX — escape literal braces/angle brackets or they'll fail to parse.
+

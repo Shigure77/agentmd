@@ -33,24 +33,3 @@ without re-scanning the whole tree.
   than guessing (mirrors the continuity rule).
 - Treat updating this file as part of the Definition of done when a change alters
   the layout.
-
-
-## Layout
-
-```
-AGENTS.md.scaffold                 # slim root: always-on rules + pointers
-.agents/
-  rules/
-    secrets.md.scaffold
-    autonomy-and-safety.md.scaffold
-    research-tools.md.scaffold     # Context7 MCP + web search
-    continuity.md.scaffold
-    definition-of-done.md.scaffold
-    version-control.md.scaffold
-    ambiguity.md.scaffold
-    lang/                          # per-language rules — see .agents/rules/lang/README.md
-      _TEMPLATE.md.scaffold
-      python.md.scaffold
-  skills/
-    source-document-review/        # example on-demand skill
-```

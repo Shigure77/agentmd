@@ -53,3 +53,4 @@ mark it `N/A` rather than leaving a `<PLACEHOLDER>`.
 | ------------------------- | ---------------------------------------- |
 | `_TEMPLATE.md.scaffold`   | Copy this to start a new language rule   |
 | `python.md.scaffold`      | Filled example (Python + uv + ruff)      |
+| `markdown.md.scaffold`    | Filled example (Markdown + prettier + markdownlint) |
