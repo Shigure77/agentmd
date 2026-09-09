@@ -1,0 +1,45 @@
+<!--
+SCAFFOLD TEMPLATE — copy this file, don't rename it in place.
+
+HOW TO USE
+  1. Copy to `.agents/rules/<rule-name>.md` (kebab-case, e.g. `logging.md`,
+     `data-privacy.md`, `performance.md`).
+  2. Fill every <PLACEHOLDER>. Delete any section that genuinely doesn't apply.
+  3. Add a pointer in the root `AGENTS.md` under "Detailed rules", e.g.:
+       - Logging & observability → `.agents/rules/logging.md`
+  4. Keep it tight: rules and "don'ts" first, rationale last. Reference the root
+     always-on rules instead of restating them.
+
+DESIGN NOTES
+  - A good rule file answers: when does this apply, what must/must not happen,
+    and how does the agent verify it followed the rule.
+  - Prefer copy-pasteable specifics (commands, exact names) over vague prose.
+  - If a rule needs per-language variants, put those in `.agents/rules/lang/`.
+-->
+
+# <RULE NAME> rules
+
+> Applies to: <SCOPE — path globs, task types, or "all work in this repo">
+> Relates to: <OTHER RULES this extends or depends on, e.g. `secrets.md`; or "N/A">
+
+## Rule
+
+- <THE CORE REQUIREMENT stated as an imperative, e.g. "Use structured logging.">
+- <ADD as many concrete, checkable requirements as needed.>
+
+## Do
+
+- <SPECIFIC ALLOWED/EXPECTED practice, with exact tools/commands/names where possible.>
+
+## Don't
+
+- <SPECIFIC PROHIBITED practice. Tie to a root rule where relevant, e.g. fail-fast, no empty try/catch.>
+
+## How to verify
+
+- <HOW the agent confirms compliance before declaring done — a command, a check,
+  or a review step. Ties into the Definition of done.>
+
+## Rationale
+
+- <WHY this rule exists — the failure it prevents. Keep to 1–3 lines.>

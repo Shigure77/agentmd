@@ -1,0 +1,3 @@
+# Normalize line endings. Keep shell scripts LF so they run under WSL/Linux.
+* text=auto eol=lf
+*.sh text eol=lf
